@@ -1,0 +1,25 @@
+<?xml version='1.0'?>
+
+<sdf version="1.5">
+  <model name="root_home_walls">
+    <pose>0 0 0 0 0 0</pose>
+    <static>true</static>
+    <link name="root_home_walls">
+      <collision name="collision">
+        <geometry>
+          <mesh>
+            <uri>model://root_home_walls/meshes/root_home_walls.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <mesh>
+            <uri>model://root_home_walls/meshes/root_home_walls.dae</uri>
+          </mesh>
+        </geometry>
+        <cast_shadows>false</cast_shadows>
+      </visual>
+    </link>
+  </model>
+</sdf>

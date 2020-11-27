@@ -1,0 +1,229 @@
+<?xml version="1.0"?>
+
+<!--BSD 3-Clause License
+
+Copyright (c) 2020, Aditya Shriwastava
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this
+   list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice,
+   this list of conditions and the following disclaimer in the documentation
+   and/or other materials provided with the distribution.
+
+3. Neither the name of the copyright holder nor the names of its
+   contributors may be used to endorse or promote products derived from
+   this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.-->
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="root">
+
+  <xacro:arg name="enable_lidar_2d" default="true"/>
+  <xacro:arg name="enable_front_camera" default="true"/>
+  <xacro:arg name="enable_imu" default="true"/>
+  <xacro:arg name="enable_lidar_3d" default="false"/>
+  <xacro:arg name="enable_front_stereo_camera" default="false"/>
+
+	<!--Material description-->
+	<material name="Black">
+		<color rgba="0.1 0.1 0.1 1"/>
+	</material>
+
+  <material name="Red">
+    <color rgba="0.7 0.1 0.1 1"/>
+  </material>
+
+	<!--Link description-->
+	<link name="base_footprint"/>
+
+	<link name="base_link">
+		<inertial>
+			<origin xyz="0 0 ${164/1000}" rpy="0 0 0"/>
+			<mass value="6" />
+			<inertia ixx="0.2370" ixy="0" ixz="0"
+							 iyy="0.3401" iyz="0"
+							 izz="0.4631" />
+		</inertial>
+		<visual>
+			<origin xyz="0 0 0" rpy="0 0 0" />
+			<geometry>
+				<mesh filename="package://root_description/meshes/base_link/base_link_visual.dae" />
+			</geometry>
+		</visual>
+		<collision>
+			<origin xyz="0 0 0" rpy="0 0 0" />
+			<geometry>
+				<mesh filename="package://root_description/meshes/base_link/base_link_collision.stl" />
+			</geometry>
+		</collision>
+	</link>
+
+  <xacro:macro name="wheel" params="side position">
+    <link name="wheel_${side}_${position}">
+      <inertial>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <mass value="0.5" />
+        <inertia ixx="0.0056"
+                 ixy="0"
+                 ixz="0"
+                 iyy="0.0112"
+                 iyz="0"
+                 izz="0.0056" />
+      </inertial>
+      <visual>
+        <origin xyz="0 0 0" rpy="${pi/2} 0 0" />
+        <geometry>
+          <cylinder length="0.05" radius="0.15"/>
+        </geometry>
+        <material name="Black"/>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="${pi/2} 0 0" />
+        <geometry>
+          <cylinder length="0.05" radius="0.15"/>
+        </geometry>
+      </collision>
+    </link>
+  </xacro:macro>
+
+	<xacro:wheel side="right" position="front"/>
+  <xacro:wheel side="right" position="rear"/>
+	<xacro:wheel side="left" position="front"/>
+  <xacro:wheel side="left" position="rear"/>
+
+  <!--Gazebo additional link properties-->
+  <xacro:macro name="wheel_gazebo" params="side position">
+    <gazebo reference="wheel_${side}_${position}">
+      <material>Gazebo/Black</material>
+      <mu1>1</mu1>
+      <mu2>1</mu2>
+      <kp>10000000.0</kp>
+      <kd>1.0</kd>
+      <fdir1>0 0 1</fdir1>
+    </gazebo>
+  </xacro:macro>
+
+  <xacro:wheel_gazebo side="right" position="front"/>
+  <xacro:wheel_gazebo side="right" position="rear"/>
+  <xacro:wheel_gazebo side="left" position="front"/>
+  <xacro:wheel_gazebo side="left" position="rear"/>
+
+	<!--Joints description-->
+	<joint name="base_footprint_base_link_joint" type="fixed">
+    <origin xyz="0 0 ${100/1000}" rpy="0 0 0" />
+    <parent link="base_footprint"/>
+    <child link="base_link"/>
+  </joint>
+
+  <xacro:macro name="wheel_joint" params="side position *origin">
+    <joint name="base_link_wheel_${side}_${position}_joint" type="continuous">
+      <xacro:insert_block name="origin"/>
+      <parent link="base_link"/>
+      <child link="wheel_${side}_${position}"/>
+      <axis xyz="0 1 0"/>
+      <dynamics damping="0.7" friction="1.0"/>
+    </joint>
+  </xacro:macro>
+
+  <xacro:wheel_joint side="right" position="front">
+    <origin xyz="${200/1000} ${-325/1000} ${50/1000}" rpy="0 0 0"/>
+  </xacro:wheel_joint>
+
+  <xacro:wheel_joint side="right" position="rear">
+    <origin xyz="${-200/1000} ${-325/1000} ${50/1000}" rpy="0 0 0"/>
+  </xacro:wheel_joint>
+
+  <xacro:wheel_joint side="left" position="front">
+    <origin xyz="${200/1000} ${325/1000} ${50/1000}" rpy="0 0 0"/>
+  </xacro:wheel_joint>
+
+  <xacro:wheel_joint side="left" position="rear">
+    <origin xyz="${-200/1000} ${325/1000} ${50/1000}" rpy="0 0 0"/>
+  </xacro:wheel_joint>
+
+  <!--Gazebo ros_control plugin related-->
+  <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      <robotNamespace>/root</robotNamespace>
+      <controlPeriod>0.02</controlPeriod>
+      <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+    </plugin>
+  </gazebo>
+
+  <xacro:macro name="wheel_transmission" params="side position">
+    <transmission name="base_link_wheel_${side}_${position}_transmission">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="base_link_wheel_${side}_${position}_joint">
+        <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="base_link_wheel_${side}_${position}_actuator">
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
+  </xacro:macro>
+
+  <xacro:wheel_transmission side="right" position="front"/>
+  <xacro:wheel_transmission side="right" position="rear"/>
+  <xacro:wheel_transmission side="left" position="front"/>
+  <xacro:wheel_transmission side="left" position="rear"/>
+
+<!--Gazebo sensors related plugins-->
+<xacro:if value="$(arg enable_lidar_2d)">
+  <xacro:include filename="$(find root_description)/urdf/lidar_2d.urdf.xacro"/>
+  <xacro:lidar_2d link="lidar_2d"
+                  parent="base_link"
+                  material="Black">
+    <origin xyz="0.225 0 0.37" rpy="0 0 0"/>
+  </xacro:lidar_2d>
+</xacro:if>
+
+<xacro:if value="$(arg enable_lidar_3d)">
+  <xacro:include filename="$(find root_description)/urdf/lidar_3d.urdf.xacro"/>
+  <xacro:lidar_3d link="lidar_3d"
+                  parent="base_link"
+                  material="Red">
+    <origin xyz="0 0 0.4" rpy="0 0 0"/>
+  </xacro:lidar_3d>
+</xacro:if>
+
+<xacro:if value="$(arg enable_front_camera)">
+  <xacro:include filename="$(find root_description)/urdf/camera.urdf.xacro"/>
+  <xacro:camera_rgb link="front_camera"
+                parent="base_link"
+                material="Black">
+    <origin xyz="0.280 0 0.32" rpy="0 0 0"/>
+  </xacro:camera_rgb>
+</xacro:if>
+
+<xacro:if value="$(arg enable_front_stereo_camera)">
+  <xacro:include filename="$(find root_description)/urdf/stereo_camera.urdf.xacro"/>
+  <xacro:stereo_camera link="front_stereo_camera"
+                parent="base_link"
+                material="Red">
+    <origin xyz="0.280 0 0.345" rpy="0 0 0"/>
+  </xacro:stereo_camera>
+</xacro:if>
+
+<xacro:if value="$(arg enable_imu)">
+  <xacro:include filename="$(find root_description)/urdf/imu.urdf.xacro"/>
+  <xacro:imu link="imu"
+             parent="base_link">
+   <origin xyz="0.280 0 0.360" rpy="0 0 0"/>
+  </xacro:imu>
+</xacro:if>
+
+</robot>

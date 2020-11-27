@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="gazebo_gui"
+       default="true"/>
+
+  <arg name="world_file"
+       default="$(find root_gazebo)/worlds/root_home_realistic.world"/>
+
+  <param name="/use_sim_time"
+         value="true"
+         type="bool"/>
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="physics" value="ode"/>
+    <env name="GAZEBO_MODEL_PATH"
+         value="$(find root_gazebo)/models_sdf:$(find root_gazebo)/models_ext_sdf:$(optenv GAZEBO_MODEL_PATH)"/>
+    <arg name="world_name"
+         value="$(arg world_file)"/>
+    <arg name="paused"
+         value="false"/>
+    <arg name="use_sim_time"
+         value="true"/>
+    <arg name="gui"
+         value="$(arg gazebo_gui)"/>
+    <arg name="recording"
+         value="false"/>
+    <arg name="debug"
+         value="false"/>
+  </include>
+</launch>
