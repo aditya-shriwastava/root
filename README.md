@@ -17,7 +17,7 @@
 		- <img src="./root_gazebo/screenshots/root_home_realistic.png" width="300" height="250"/>
 
 ## Ground truth
-- When comparing different state estimation algorithm (eg, sensor fusion of different odometry source, localization with a known map, simultaneous localization and mapping(SLAM) etc) ground truth information becomes very helpful.
+- When comparing different state estimation algorithms (eg, sensor fusion of different odometry source, localization with a known map, simultaneous localization and mapping(SLAM) etc) ground truth information becomes very helpful.
 
 - So for this purpos:
 	1. ground truth layout has been made from the cad file of root_home
