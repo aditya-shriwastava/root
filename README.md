@@ -1,7 +1,7 @@
 # root
 [![Website shields.io](https://img.shields.io/website-up-down-green-red/http/shields.io.svg)](https://root-org.github.io/) [![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
 
-<img align="right" width="350" height="220" src="./root_description/doc/root_labeled.png">
+<img align="right" width="350" height="220" src="./root_description/doc/images/root_labeled.png">
 
 - Root is an open-source indoor simulated robot.
 - It is built with the intention to test different algorithms related to:
