@@ -30,4 +30,8 @@
   <build_depend>nav_msgs</build_depend>
   <exec_depend>nav_msgs</exec_depend>
 
+  <export>
+    <rosdoc config="rosdoc.yaml"/>
+  </export>
+
 </package>

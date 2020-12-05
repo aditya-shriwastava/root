@@ -28,6 +28,9 @@
 // OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE
 
+//! @file gt_pub.h
+//! @author Aditya Shriwastava
+
 #pragma once
 
 #include <string>
@@ -58,12 +61,10 @@
 #include <nav_msgs/Odometry.h>
 
 namespace ground_truth{
-  // Info
-  // GtPub -> Ground truth Publisher
-  // gt_layout ----> gt_start ----> tf_tree_root ----> base_footprint
-  //                  \   \
-  //                  \   \>est_odom2
-  //                  \>est_odom1
+  //! @brief Class for publishing ground truth information from gazebo
+  //! and other debugging information.
+  //!
+  //! GtPub: Ground truth Publisher.
   class GtPub{
   public:
     GtPub();
@@ -98,6 +99,7 @@ namespace ground_truth{
     bool _publish_gt_path;
     double _path_resolution;
 
+    //! @brief Load all the initialization parameters from parameter server.
     void LoadParameters();
 
     void OdomCb
