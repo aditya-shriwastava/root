@@ -1,8 +1,5 @@
 # root_gazebo
 ## Package Summary
-
-[![ApiDocs](https://readthedocs.org/projects/ansicolortags/badge/?version=latest)](https://root-org.github.io/root_gazebo/index.html)
-
 This package contains world, relevent models and plugins needed to simulate root in gazebo.
 ## Nodes
 
