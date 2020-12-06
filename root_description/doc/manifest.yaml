@@ -1,0 +1,13 @@
+actions: []
+authors: ''
+brief: ''
+bugtracker: ''
+depends: ''
+description: This package contains the URDF model of root robot.
+license: BSD 3-Clause License
+maintainers: Aditya Shriwastava <adityashriwastava7@gmail.com>
+msgs: []
+package_type: package
+repo_url: ''
+srvs: []
+url: ''

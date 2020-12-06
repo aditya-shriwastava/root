@@ -1,0 +1,20 @@
+actions: []
+authors: ''
+brief: ''
+bugtracker: ''
+depends:
+- nav_msgs
+- catkin
+- roscpp
+- gazebo_msgs
+- geometry_msgs
+- tf2_ros
+description: This package contains world, relevent models and plugins needed to simulate
+  root in gazebo.
+license: BSD 3-Clause License
+maintainers: Aditya Shriwastava <adityashriwastava7@gmail.com>
+msgs: []
+package_type: package
+repo_url: ''
+srvs: []
+url: ''
