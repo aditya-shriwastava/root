@@ -100,11 +100,58 @@ namespace ground_truth{
     double _path_resolution;
 
     //! @brief Load all the initialization parameters from parameter server.
+    //!
+    //! ## Parameter List
+    //! * ~robot
+    //!   - (string) Name of the robot as specified in robot URDF file.
+    //! * ~base_footprint
+    //!   - (string) Base Footprint of the robot.
+    //! * ~tf_tree_root
+    //!   - Root of the tf_tree befor tf added by GtPub.
+    //!   - Typically "odom" or "map".
+    //! * ~layout
+    //! * ~source_topic
+    //! * ~source_type
+    //! * ~frame_name
+    //! * ~publish_tf
+    //! * ~publish_path
+    //! * ~publish_gt_path
+    //! * ~path_resolution
     void LoadParameters();
 
+    //! @brief Odom callback
+    //!
+    //! ## Algorithm
+    //! 1. Get the tf2::Transform form the odometry msg.
+    //! 2. If publish tf is set to true, then publish the tf.
+    //!   - ("gt_start") -> (<frame_name>)
+    //! 3. If publish path is set to true, then:
+    //!   1. Add pose to the path.
+    //!   2. Publish path.
+    //!
+    //! @param[in] index This is the index of _source_topic to
+    //! indicate from which topic this msg has came. This is
+    //! important as multiple topic can have came callback function.
+    //!
+    //! @param[in] odom Odometry msg received.
     void OdomCb
     (const nav_msgs::Odometry::ConstPtr& odom, int index);
 
+    //! @brief Pose callback
+    //!
+    //! ## Algorithm
+    //! 1. Get the tf2::Transform form the pose msg.
+    //! 2. If publish tf is set to true, then publish the tf.
+    //!   - ("gt_start") -> (<frame_name>)
+    //! 3. If publish path is set to true, then:
+    //!   1. Add pose to the path.
+    //!   2. Publish path.
+    //!
+    //! @param[in] index This is the index of _source_topic to
+    //! indicate from which topic this msg has came. This is
+    //! important as multiple topic can have came callback function.
+    //!
+    //! @param[in] pose Pose msg received.
     void PoseCb(const
     geometry_msgs::PoseWithCovarianceStamped::ConstPtr&
     pose, int index);
