@@ -22,7 +22,7 @@ This package contains world, relevent models and plugins needed to simulate root
 ```YAML
 ~robot: "root"
 ~base_footprint: "base_footprint"
-~tf_tree_root: "odom_combined"
+~tf_tree_root: "map"
 ~layout: "gt_layout"
 ~source_topic: ["odom", "odom_combined"]
 ~source_type: ["nav_msgs/Odometry", "geometry_msgs/PoseWithCovarianceStamped"]
