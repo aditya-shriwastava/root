@@ -48,21 +48,6 @@
          id="path4302" />
     </marker>
     <marker
-       inkscape:isstock="true"
-       style="overflow:visible;"
-       id="marker3520"
-       refX="0.0"
-       refY="0.0"
-       orient="auto"
-       inkscape:stockid="Arrow2Lend"
-       inkscape:collect="always">
-      <path
-         transform="scale(1.1) rotate(180) translate(1,0)"
-         d="M 8.7185878,4.0337352 L -2.2072895,0.016013256 L 8.7185884,-4.0017078 C 6.9730900,-1.6296469 6.9831476,1.6157441 8.7185878,4.0337352 z "
-         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round;stroke:#000000;stroke-opacity:1;fill:#000000;fill-opacity:1"
-         id="path3518" />
-    </marker>
-    <marker
        inkscape:stockid="Arrow2Lend"
        orient="auto"
        refY="0.0"
@@ -399,9 +384,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.7544273"
-     inkscape:cx="235.24811"
-     inkscape:cy="927.76254"
+     inkscape:zoom="0.62028372"
+     inkscape:cx="302.12309"
+     inkscape:cy="730.0262"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -418,7 +403,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -520,25 +505,14 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333311px;line-height:1.25;font-family:hindi;-inkscape-font-specification:hindi;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-       x="149.16841"
-       y="75.109932"
+       x="126.56115"
+       y="108.16772"
        id="text1550"><tspan
          sodipodi:role="line"
          id="tspan1548"
-         x="149.16841"
-         y="75.109932"
-         style="stroke-width:0.26458332">est_odom2</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333311px;line-height:1.25;font-family:hindi;-inkscape-font-specification:hindi;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-       x="156.12729"
-       y="97.85981"
-       id="text1554"><tspan
-         sodipodi:role="line"
-         id="tspan1552"
-         x="156.12729"
-         y="97.85981"
-         style="stroke-width:0.26458332">est_loc1</tspan></text>
+         x="126.56115"
+         y="108.16772"
+         style="stroke-width:0.26458332">est_odom_combined</tspan></text>
     <g
        id="g1724"
        transform="translate(5.2059461,-9.6681842)">
@@ -625,7 +599,7 @@
     </g>
     <g
        id="g1724-0"
-       transform="translate(101.7456,-27.823423)">
+       transform="translate(113.88926,-6.04037)">
       <path
          inkscape:connector-curvature="0"
          id="path815-9-61"
@@ -636,20 +610,6 @@
          id="path815-7-1-5"
          d="M 59.746494,97.691634 H 47.599284"
          style="fill:none;stroke:#fe0000;stroke-width:0.40000001;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow2Lstart-3-5-3)" />
-    </g>
-    <g
-       id="g1724-93"
-       transform="translate(108.35514,-5.1926022)">
-      <path
-         inkscape:connector-curvature="0"
-         id="path815-9-74"
-         d="M 47.599284,85.544425 V 97.691634"
-         style="fill:none;stroke:#00ff00;stroke-width:0.40000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow2Lstart-5-5)" />
-      <path
-         inkscape:connector-curvature="0"
-         id="path815-7-1-52"
-         d="M 59.746494,97.691634 H 47.599284"
-         style="fill:none;stroke:#fe0000;stroke-width:0.40000001;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow2Lstart-3-5-76)" />
     </g>
     <path
        style="fill:none;stroke:#000000;stroke-width:0.40000001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:1.2, 0.4;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#Arrow2Lend)"
@@ -671,13 +631,8 @@
        sodipodi:nodetypes="cc" />
     <path
        style="fill:none;stroke:#000000;stroke-width:0.40000001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:1.2, 0.4;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#marker3358)"
-       d="M 72.676913,125.52714 149.34488,69.339043"
+       d="M 72.676913,125.52714 161.48854,91.651264"
        id="path3348"
-       inkscape:connector-curvature="0" />
-    <path
-       style="fill:none;stroke:#000000;stroke-width:0.40000001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:1.2, 0.4;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#marker3520)"
-       d="M 72.676913,125.52714 155.95442,92.499033"
-       id="path3510"
        inkscape:connector-curvature="0" />
     <path
        style="fill:none;stroke:#000000;stroke-width:0.40000001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:1.2, 0.4;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#marker4304)"
@@ -690,34 +645,5 @@
        id="path5524"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cc" />
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.08172894px;line-height:1.25;font-family:hindi;-inkscape-font-specification:hindi;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.50510806"
-       x="162.54231"
-       y="164.39301"
-       id="text6082"
-       transform="scale(0.95062337,1.0519413)"><tspan
-         sodipodi:role="line"
-         id="tspan6080"
-         x="162.54231"
-         y="164.39301"
-         style="text-align:center;text-anchor:middle;stroke-width:0.50510806">tf added by gt_pub for</tspan><tspan
-         sodipodi:role="line"
-         x="162.54231"
-         y="174.49516"
-         style="text-align:center;text-anchor:middle;stroke-width:0.50510806"
-         id="tspan6084">debugging purpose</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.09777737px;line-height:1.25;font-family:hindi;-inkscape-font-specification:hindi;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.50611109"
-       x="8.0756474"
-       y="13.3786"
-       id="text6088"
-       transform="scale(0.94374567,1.0596075)"><tspan
-         sodipodi:role="line"
-         id="tspan6086"
-         x="8.0756474"
-         y="13.3786"
-         style="stroke-width:0.50611109">tf published by the robot</tspan></text>
   </g>
 </svg>
