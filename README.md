@@ -24,9 +24,7 @@
   1. ground truth layout has been made from the cad file of root_home <br>
      <img src="./root_gazebo/layouts/root_home/root_home.png" width="200" height="200"/>
   2. gt_pub node has beed made which publishes different ground truth informations:
-      
-      * Transforms <br>
-    <img src="./root_gazebo/doc/images/gt_pub_frames.png" width="310" height="350"/>
-      
-      * Paths <br>
-    <img src="./root_gazebo/doc/images/gt_pub_paths.png" width="450" height="350"/>
+  	* Transforms <br>
+  		<img src="./root_gazebo/doc/images/gt_pub_frames.png" width="310" height="350"/>
+  	* Paths <br>
+  		<img src="./root_gazebo/doc/images/gt_pub_paths.png" width="450" height="350"/>
