@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<launch>
+
+  <include file="$(find root_bringup)/launch/xml/root.xml">
+    <arg name="gazebo_gui" value="false"/>
+    <arg name="world_file" value="$(find root_gazebo)/worlds/root_home.world"/>
+    <arg name="enable_lidar_2d" value="true"/>
+    <arg name="enable_front_camera" value="true"/>
+    <arg name="enable_imu" value="true"/>
+    <arg name="enable_lidar_3d" value="false"/>
+    <arg name="enable_front_stereo_camera" value="false"/>
+  </include>
+
+  <include file="$(find root_bringup)/launch/xml/root_odom.xml"/>
+
+  <include file="$(find root_bringup)/launch/xml/root_ground_truth.xml">
+    <arg name="tf_tree_root" value="odom_combined"/>
+  </include>
+
+  <arg name="rvizconfig"
+       default="$(find root_bringup)/rviz/root_basic_view.rviz"/>
+
+  <node name="rviz"
+        pkg="rviz"
+        type="rviz"
+        args="-d $(arg rvizconfig)"
+        required="true"/>
+
+</launch>

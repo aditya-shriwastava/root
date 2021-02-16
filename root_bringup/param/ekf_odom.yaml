@@ -1,0 +1,42 @@
+frequency: 30
+sensor_timeout: 0.1
+two_d_mode: true
+
+map_frame: map
+odom_frame: odom_combined
+base_link_frame: base_footprint
+world_frame: odom_combined
+
+transform_time_offset: 0.0
+transform_timeout: 0.0
+
+odom0: root/diff_drive_controller/odom
+odom0_config: [false, false, false,
+               false, false, false,
+               true,  true,  true,
+               true,  true,   true,
+               false, false, false]
+odom0_queue_size: 2
+odom0_differential: false
+odom0_relative: false
+
+imu0: root/imu/data
+imu0_config: [false, false, false,
+              true,  true,  true,
+              false, false, false,
+              true,  true,  true,
+              true,  true,  true]
+imu0_queue_size: 5
+imu0_differential: false
+imu0_relative: true
+
+imu0_remove_gravitational_acceleration: true
+
+initial_state: [0.0,  0.0,  0.0,
+                0.0,  0.0,  0.0,
+                0.0,  0.0,  0.0,
+                0.0,  0.0,  0.0,
+                0.0,  0.0,  0.0]
+
+publish_tf: true
+print_diagnostics: false

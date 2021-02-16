@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<launch>
+
+  <arg name="enable_lidar_2d"
+       default="true"/>
+
+  <arg name="enable_front_camera"
+       default="true"/>
+
+  <arg name="enable_imu"
+       default="false"/>
+
+  <arg name="enable_lidar_3d"
+       default="false"/>
+
+  <arg name="enable_front_stereo_camera"
+       default="false"/>
+
+  <arg name="model"
+       default="$(find root_description)/urdf/root.urdf.xacro"/>
+  <param name="root/robot_description"
+         command="$(find xacro)/xacro $(arg model)
+                  enable_lidar_2d:=$(arg enable_lidar_2d)
+                  enable_front_camera:=$(arg enable_front_camera)
+                  enable_imu:=$(arg enable_imu)
+                  enable_lidar_3d:=$(arg enable_lidar_3d)
+                  enable_front_stereo_camera:=$(arg enable_front_stereo_camera)"/>
+
+  <arg name="gazebo_gui"
+       default="true"/>
+
+  <arg name="world_file"
+       default="$(find root_gazebo)/worlds/root_home.world"/>
+
+ <arg name="gazebo_model_paths"
+      default=""/>
+
+  <param name="/use_sim_time"
+         value="true"
+         type="bool"/>
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="physics" value="ode"/>
+    <env name="GAZEBO_MODEL_PATH"
+         value="$(arg gazebo_model_paths):$(find root_gazebo)/models_sdf:$(find root_gazebo)/models_ext_sdf:$(optenv GAZEBO_MODEL_PATH)"/>
+    <arg name="world_name"
+         value="$(arg world_file)"/>
+    <arg name="paused"
+         value="false"/>
+    <arg name="use_sim_time"
+         value="true"/>
+    <arg name="gui"
+         value="$(arg gazebo_gui)"/>
+    <arg name="recording"
+         value="false"/>
+    <arg name="debug"
+         value="false"/>
+  </include>
+
+  <node name="spawn_urdf"
+        pkg="gazebo_ros"
+        type="spawn_model"
+        args="-param root/robot_description -urdf -x -15 -y -15 -z 0 -model root"/>
+
+  <rosparam command="load"
+            file="$(find root_bringup)/param/controller.yaml"/>
+
+  <node name="root_controller_spawner"
+        pkg="controller_manager"
+        type="spawner"
+        args="--namespace=/root
+                joint_publisher
+                diff_drive_controller"/>
+
+  <node name="robot_state_publisher"
+        pkg="robot_state_publisher"
+        type="robot_state_publisher"
+        ns="/root"/>
+
+</launch>

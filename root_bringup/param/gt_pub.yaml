@@ -1,0 +1,11 @@
+robot: "root"
+base_footprint: "base_footprint"
+tf_tree_root: "odom_combined"
+layout: "gt_layout"
+source_topic: ["/root/diff_drive_controller/odom", "/ekf_odom/odom"]
+source_type: ["nav_msgs/Odometry", "nav_msgs/Odometry"]
+frame_name: ["est_odom", "est_odom_combined"]
+publish_tf: [true, true]
+publish_path: [true, true]
+publish_gt_path: true
+path_resolution: 0.01

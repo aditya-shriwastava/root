@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<package format="2">
+
+  <name>root_bringup</name>
+  <version>0.0.0</version>
+
+  <description>
+    This package contains launch files for bringing up root.
+  </description>
+
+  <maintainer email="adityashriwastava7@gmail.com">Aditya Shriwastava</maintainer>
+  <license>BSD 3-Clause License</license>
+
+</package>

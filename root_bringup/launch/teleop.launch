@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+
+<launch>
+  <node name="teleop_twist_keyboard"
+        pkg="teleop_twist_keyboard"
+        type="teleop_twist_keyboard.py"
+        output="screen"
+        ns="/root/diff_drive_controller"
+        args="_speed:=0.5 _turn:=0.8"/>
+</launch>
