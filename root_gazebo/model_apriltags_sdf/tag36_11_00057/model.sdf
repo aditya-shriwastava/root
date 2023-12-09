@@ -1,0 +1,18 @@
+<?xml version='1.0'?>
+
+<sdf version="1.5">
+  <model name="tag36_11_00057">
+    <pose>0 0 0 0 0 0</pose>
+    <static>true</static>
+    <link name="tag36_11_00057">
+      <visual name='tag36_11_00057'>
+        <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://tag36_11_00057/meshes/tag36_11_00057.dae</uri>
+            </mesh>
+          </geometry>
+      </visual>
+    </link>
+  </model>
+</sdf>
